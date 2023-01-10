@@ -18,6 +18,22 @@
           <th>Response body data format</th>
           <th>Request body data format</th>
         </tr>
+
+        <tr>
+          <td>Returns a list of all users</td>
+          <td>"/users"</td>
+          <td>none</td>
+          <td>GET <br> Example: app.get("/movies", (req,res) =>{})</td>
+          <td>
+            A JSON object holding data about all the movies <br>
+            Example: {"_id":{"$oid":"63bbd2d8e4c5fdfffd5bcf20"},
+            "Username":"blue","Password":"bluepass",
+            "Email":"blueish@blue.org","Birthday":{"$date":"1991-04-03T22:00:00Z"},
+            "FavoriteMovies":[{"$oid":"63b8534ae4c5fdfffd5bcf1d"},
+            {"$oid":"63b8534ae4c5fdfffd5bcf1d"}]}
+          </td>
+          <td></td>
+        </tr>
         <tr>
             <td>Returns a list of all movies to the user</td>
             <td>"/movies"</td>
@@ -25,9 +41,27 @@
             <td>GET <br> Example: app.get("/movies", (req,res) =>{})</td>
             <td>
               A JSON object holding data about all the movies <br>
-              Example: {Title: "Moulin Rouge", Description: "",
-              Director: { Name: "Baz Luhrmann", Bio: "" }, Genre: { Name: "Musical",
-              Description:""} }
+              Example: [
+              {
+                "Genre": {
+                  "Name": "Biography",
+                  "Description": "A film that tells the story of the life of a real person, often monarch, politial leader or artist"
+                },
+                "Director": {
+                  "Name": "Bernardo Bertolucci",
+                  "Bio": "An Italian director whose films were known for their colorful visual style.",
+                  "Birth": "1948",
+                  "Death": "2018"
+                },
+                "Actors": [
+                  
+                ],
+                "_id": "63b83c64e4c5fdfffd5bcf14",
+                "Title": "The Last Emperor",
+                "Description": "Dramatization of China's last emperor, Puyi.",
+                "ImagePath": "https://m.media-amazon.com/images/M/MV5BMTc2OTY0NjAyN15BMl5BanBnXkFtZTgwMjY5MDY2MDE@._V1_QL75_UY207_CR7,0,140,207_.jpg",
+                "Featured": true
+              }]
             </td>
             <td></td>
           </tr>
@@ -39,31 +73,57 @@
             <td>GET <br> Example: app.get("/movies/:Title", (req,res) =>{})</td>
             <td>
               A JSON object holding data about a single movie <br>
-              Example: {Title: "Title1", Description: "...."}
+              Example: {
+                "Genre": {
+                  "Name": "Drama",
+                  "Description": "Drama is a category of narrative fiction intended to be more serious than humorous in tone."
+                },
+                "Director": {
+                  "Name": "Roman Polanski",
+                  "Birth": "1933",
+                  "Bio": "A Polish film director, producer, writer and actor."
+                },
+                "Actors": [
+                  
+                ],
+                "_id": "63b840c8e4c5fdfffd5bcf15",
+                "Title": "The Pianist",
+                "Description": "A Polish Jewish musician struggles to survive the destruction of the Warsaw ghetto of World War II.",
+                "ImagePath": "https://m.media-amazon.com/images/M/MV5BMTAzNzgwMzMyNDNeQTJeQWpwZ15BbWU2MDg0MDkzNA@@._V1_QL75_UX140_CR0,2,140,207_.jpg",
+                "Featured": false
+              }
             </td>
             <td></td>
           </tr>
   
           <tr>
             <td>Returns data about a genre by name</td>
-            <td>"/movies/genre/:genreName"</td>
+            <td>"/movies/genre/:Name"</td>
             <td>:genreName</td>
-            <td>GET<br> Example: app.get("/movies/genres/:genreName", (req,res) =>{})</td>
+            <td>GET<br> Example: app.get("/movies/genres/:Name", (req,res) =>{})</td>
             <td>
               A JSON object holding data about a genre <br>
-              Example: Genre: { Name: "Action", Description:"..."}
+              Example: {
+                "Name": "Thriller",
+                "Description": "Thrillers are characterized and defined by the moods they elicit, giving viewers hightened feelings of suspense, excitement, surprise, anticipation and anxiety."
+              }
             </td>
             <td></td>
           </tr>
     
           <tr>
             <td>Returns data about a director by name</td>
-            <td>"/movies/directors/:directorName"</td>
+            <td>"/movies/directors/:Name"</td>
             <td>:directorName</td>
-            <td>GET <br> Example: app.get("/movies/directors/:directorName", (req,res) =>{})</td>
+            <td>GET <br> Example: app.get("/movies/directors/:Name", (req,res) =>{})</td>
             <td>
               A JSON object holding data about a director <br>
-              Example: Director: { Name: "Lucas", Bio: "..." },
+              Example:   {
+                "Name": "Bernardo Bertolucci",
+                "Bio": "An Italian director whose films were known for their colorful visual style.",
+                "Birth": "1948",
+                "Death": "2018"
+              },
             </td>
             <td></td>
           </tr>
