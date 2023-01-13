@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Models = require('./models.js');
+const { check, validationResult } = require('express-validator');
 
 const Movies = Models.Movie;
 const Users = Models.User;
@@ -24,6 +25,8 @@ app.use(express.static('public'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));  //bodyParser middleware function
+const cors = require('cors');
+app.use(cors());
 let auth = require('./auth')(app); //import the “auth.js” file into the project
 
 const passport = require('passport');
@@ -95,8 +98,30 @@ app.get('/movies/directors/:Name', passport.authenticate( 'jwt', { session: fals
     })
 });
 
-//CREATE - allow user to register (add new user)
-app.post('/users', passport.authenticate( 'jwt', { session: false }), (req, res) => {
+//CREATE - allow a new user to register (add new user)
+app.post('/users', 
+
+  // Validation logic here for request
+  //you can either use a chain of methods like .not().isEmpty()
+  //which means "opposite of isEmpty" in plain english "is not empty"
+  //or use .isLength({min: 5}) which means
+  //minimum value of 5 characters are only allowed
+  [
+    check('Username', 'Username is required').isLength({min: 5}),
+    check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
+    check('Password', 'Password is required').not().isEmpty(),
+    check('Email', 'Email does not appear to be valid').isEmail()
+  ], (req, res) => {
+
+  // check the validation object for errors
+    let errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      return res.status(422).json({ errors: errors.array() });
+    }
+
+//passport.authenticate( 'jwt', { session: false }), (req, res) => {
+  let hashedPassword = Users.hashPassword(req.body.Password);
     Users.findOne({ Username: req.body.Username })
       .then((user) => {
         if (user) {
@@ -105,7 +130,7 @@ app.post('/users', passport.authenticate( 'jwt', { session: false }), (req, res)
           Users
             .create({
               Username: req.body.Username,
-              Password: req.body.Password,
+              Password: hashedPassword,
               Email: req.body.Email,
               Birthday: req.body.Birthday
             })
@@ -137,13 +162,32 @@ app.post('/users', passport.authenticate( 'jwt', { session: false }), (req, res)
   
 
 //UPDATE - allow users to update their data
-app.put('/users/:Username', passport.authenticate( 'jwt', { session: false }), (req, res) => {
+app.put('/users/:Username',   passport.authenticate("jwt", { session: false }),
+[
+  check("Username", "Username is required").isLength({ min: 5 }),
+  check(
+    "Username",
+    "Username contains non alphanumeric characters - not allowed."
+  ).isAlphanumeric(),
+  check("Password", "Password is required")
+    .not()
+    .isEmpty(),
+  check("Email", "Email does not appear to be valid").isEmail()
+],
+(req, res) => {
+  var errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    return res.status(422).json({ errors: errors.array() });
+  }
+
+  var hashedPassword = Users.hashPassword(req.body.Password);
   Users.findOneAndUpdate(
     { Username: req.params.Username },
     { 
       $set: {
         Username: req.body.Username,
-        Password: req.body.Password,
+        Password: hashedPassword,
         Email: req.body.Email,
         Birthday: req.body.Birthday
      },
