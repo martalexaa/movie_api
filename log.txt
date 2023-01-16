@@ -86,3 +86,6 @@
 ::ffff:127.0.0.1 - - [11/Jan/2023:11:24:50 +0000] "GET /users HTTP/1.1" 200 1244 "-" "PostmanRuntime/7.30.0"
 ::ffff:127.0.0.1 - - [11/Jan/2023:11:25:42 +0000] "DELETE /users/yellow/movies/63b84bcce4c5fdfffd5bcf1a HTTP/1.1" 401 - "-" "PostmanRuntime/7.30.0"
 ::ffff:127.0.0.1 - - [11/Jan/2023:11:25:48 +0000] "DELETE /users/yellow/movies/63b84bcce4c5fdfffd5bcf1a HTTP/1.1" 200 214 "-" "PostmanRuntime/7.30.0"
+::ffff:127.0.0.1 - - [12/Jan/2023:13:21:40 +0000] "GET / HTTP/1.1" 200 18 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+::ffff:127.0.0.1 - - [12/Jan/2023:13:21:40 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://127.0.0.1:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+::ffff:127.0.0.1 - - [12/Jan/2023:13:21:47 +0000] "GET /users HTTP/1.1" 401 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
