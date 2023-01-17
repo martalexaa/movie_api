@@ -121,20 +121,18 @@ app.post('/users',
 
   // check the validation object for errors
     let errors = validationResult(req);
-
     if (!errors.isEmpty()) {
       return res.status(422).json({ errors: errors.array() });
     }
-
 //passport.authenticate( 'jwt', { session: false }), (req, res) => {
-  let hashedPassword = Users.hashPassword(req.body.Password);
+  let hashedPassword = Users.hashPassword(req.body.Password); //hashes password when registering
     Users.findOne({ Username: req.body.Username })
       .then((user) => {
-        if (user) {
+        if (user) {  //checks if the user already exist
           return res.status(400).send(req.body.Username + 'already exists');
         } else {
           Users
-            .create({
+            .create({  //if does not exist, create a new user
               Username: req.body.Username,
               Password: hashedPassword,
               Email: req.body.Email,
