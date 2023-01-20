@@ -6,6 +6,7 @@ const Movies = Models.Movie;
 const Users = Models.User;
 
 mongoose.set('strictQuery', true);
+
 //connect to local database
 mongoose.connect('mongodb://localhost:27017/myFlixDB', { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -138,7 +139,7 @@ app.post('/users',
               Email: req.body.Email,
               Birthday: req.body.Birthday
             })
-            .then((user) =>{res.status(201).json(({Username: user.Username, Email: user.Email})) })
+            .then((user) =>{res.status(201).json(({ user })) })
           .catch((error) => {
             console.error(error);
             res.status(500).send('Error: ' + error);
