@@ -144,3 +144,6 @@
 127.0.0.1 - - [20/Jan/2023:11:21:58 +0000] "PUT /users/marta?Username=marta&Password=updated HTTP/1.1" 200 223 "-" "PostmanRuntime/7.30.0"
 127.0.0.1 - - [20/Jan/2023:11:28:00 +0000] "POST /users HTTP/1.1" 422 137 "-" "PostmanRuntime/7.30.0"
 127.0.0.1 - - [20/Jan/2023:11:28:45 +0000] "POST /users HTTP/1.1" 422 114 "-" "PostmanRuntime/7.30.0"
+127.0.0.1 - - [20/Jan/2023:11:48:42 +0000] "POST /users HTTP/1.1" 422 95 "-" "PostmanRuntime/7.30.0"
+127.0.0.1 - - [20/Jan/2023:11:49:43 +0000] "POST /users HTTP/1.1" 422 95 "-" "PostmanRuntime/7.30.0"
+127.0.0.1 - - [20/Jan/2023:12:15:18 +0000] "POST /users HTTP/1.1" 201 192 "-" "PostmanRuntime/7.30.0"
