@@ -12,7 +12,7 @@ mongoose.set('strictQuery', true);
 
 
 //connect to online database using enviormental variable
-mongoose.connect(process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect( process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 
 const express = require('express'),
