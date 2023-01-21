@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 const Models = require('./models.js');
 const { check, validationResult } = require('express-validator');
-//const dotenv = require("dotenv");
-//dotenv.config();
-
-//const CONNECTION_URI = process.env;
 
 const Movies = Models.Movie;
 const Users = Models.User;
@@ -16,7 +12,7 @@ mongoose.set('strictQuery', true);
 
 
 //connect to online database using enviormental variable
-mongoose.connect( 'mongodb+srv://username:password@cluster0.loahamq.mongodb.net/myFlixDB?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect( `mongodb+srv://${username}:${password}@${cluster}.loahamq.mongodb.net/${dbname}?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true });
 
 
 const express = require('express'),
