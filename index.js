@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const Models = require('./models.js');
 const { check, validationResult } = require('express-validator');
+const findConfig = require('find-config');
+require('dotenv').config({ path: require('find-config')('.env') });
 
 const Movies = Models.Movie;
 const Users = Models.User;
@@ -12,8 +14,7 @@ mongoose.set('strictQuery', true);
 
 
 //connect to online database using enviormental variable
-mongoose.connect( `mongodb+srv://${username}:${password}@${cluster}.loahamq.mongodb.net/${dbname}?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true });
-
+mongoose.connect(process.env.CONNECTION_URI, {useNewUrlParser: true, useUnifiedTopology: true});
 
 const express = require('express'),
     app = express(),
