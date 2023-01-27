@@ -60,7 +60,7 @@ app.get('/users', passport.authenticate( 'jwt', { session: false }), function (r
 
 
 //READ - list all movies (with arrow function)
-app.get('/movies', (request, response) => {
+app.get('/movies', passport.authenticate( 'jwt', { session: false }), (request, response) => {
     Movies.find()
     .then ((movies) => {
     response.status(200).json(movies);
