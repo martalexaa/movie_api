@@ -34,8 +34,22 @@ app.use(express.static('public'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));  //bodyParser middleware function
+
 const cors = require('cors');
-app.use(cors());
+
+let allowedOrigins = ['http://localhost:1234', 'https://martalexa-myflix.onrender.com', 'http://testsite.com'];
+app.use(cors({
+  origin: (origin, callback) => {
+    if(!origin) return callback(null, true);
+    if(allowedOrigins.indexOf(origin) === -1){ // If a origin is not on the list of allowed origins
+      let message = 'The CORS policy for this application doesn\'t allow access from origin ' + origin;
+      return callback(new Error(message ), false);
+    }
+    return callback(null, true);
+  }
+}));
+
+
 let auth = require('./auth')(app); //import the “auth.js” file into the project
 
 const passport = require('passport');
