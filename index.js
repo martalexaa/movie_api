@@ -35,7 +35,7 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));  //bodyParser middleware function
 
-const cors = require('cors');
+/*const cors = require('cors');
 
 let allowedOrigins = ['http://localhost:1234', 'https://martalexa-myflix.onrender.com', 'http://testsite.com'];
 app.use(cors({
@@ -47,7 +47,7 @@ app.use(cors({
     }
     return callback(null, true);
   }
-}));
+}));*/
 
 
 let auth = require('./auth')(app); //import the “auth.js” file into the project
