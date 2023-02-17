@@ -37,7 +37,8 @@ app.use(bodyParser.urlencoded({ extended: true }));  //bodyParser middleware fun
 
 const cors = require('cors');
 
-let allowedOrigins = ['http://localhost:8080', 'http://testsite.com', 'http://localhost:1234', 'https://martalexa-myflix.onrender.com/', 'https://martalexaa-movie-app.netlify.app/'];
+let allowedOrigins = ['http://localhost:8080', 'http://testsite.com', 'http://localhost:1234', 
+'https://martalexa-myflix.onrender.com', 'https://martalexaa-movie-app.netlify.app'];
 app.use(cors({
   origin: (origin, callback) => {
     if(!origin) return callback(null, true);
