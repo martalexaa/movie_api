@@ -70,8 +70,8 @@ directors, and genres. It is built using REST architecture and follows the requi
 <p>The API source code is hosted on GitHub, a publicly accessible platform. It can be cloned and deployed to a local or remote server. The API is also deployed to Render, a cloud platform, for easy access and testing. The Render deployment URL is: <code>https://martalexa-myflix.onrender.com/</code></p>
 
 <h2>Conclusion</h2>
-<p>The myFlix Backend API is a powerful and secure Node.js and Express application that provides movie information to users. It follows REST architecture, uses MongoDB as the database, and includes user authentication, authorization, data validation, and data security features. With the API deployed to Heroku, it is easily accessible and ready for use in your web applications.</p>
+<p>The myFlix Backend API is a powerful and secure Node.js and Express application that provides movie information to users. It follows REST architecture, uses MongoDB as the database, and includes user authentication, authorization, data validation, and data security features. With the API deployed to Render, it is easily accessible and ready for use in your web applications.</p>
 
 <h2>Contact</h2>
-<p>If you have any questions or feedback, please feel free to contact the API maintainer at [email protected]</p>
+<p>If you have any questions or feedback, please feel free to contact the API maintainer at [martalexa@gmail.com]</p>
 
