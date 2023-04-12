@@ -67,7 +67,7 @@ directors, and genres. It is built using REST architecture and follows the requi
 <p>The API can be tested using Postman, a popular API testing tool. Postman allows you to send HTTP requests to the API endpoints and view the responses to ensure that the API is functioning correctly. You can use Postman to test various scenarios, such as registering a new user, logging in, and making authenticated requests.</p>
 
 <h2>Deployment</h2>
-<p>The API source code is hosted on GitHub, a publicly accessible platform. It can be cloned and deployed to a local or remote server. The API is also deployed to Heroku, a cloud platform, for easy access and testing. The Heroku deployment URL is: <code>https://myflix-backend-api.herokuapp.com/</code></p>
+<p>The API source code is hosted on GitHub, a publicly accessible platform. It can be cloned and deployed to a local or remote server. The API is also deployed to Render, a cloud platform, for easy access and testing. The Render deployment URL is: <code>https://martalexa-myflix.onrender.com/</code></p>
 
 <h2>Conclusion</h2>
 <p>The myFlix Backend API is a powerful and secure Node.js and Express application that provides movie information to users. It follows REST architecture, uses MongoDB as the database, and includes user authentication, authorization, data validation, and data security features. With the API deployed to Heroku, it is easily accessible and ready for use in your web applications.</p>
