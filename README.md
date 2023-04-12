@@ -1,8 +1,7 @@
-
-    <h1>myFlix Backend API</h1>
-    <p>The myFlix Backend API is a Node.js and Express application that provides movie information to users, 
-    allowing them to view and manage their favorite movies, 
-    directors, and genres. It is built using REST architecture and follows the requirements outlined in the project description.</p>
+<h1>myFlix Backend API</h1>
+<p>The myFlix Backend API is a Node.js and Express application that provides movie information to users, 
+ allowing them to view and manage their favorite movies, 
+directors, and genres. It is built using REST architecture and follows the requirements outlined in the project description.</p>
     <h2>Features</h2>
 <ul>
     <li>Return a list of all movies</li>
