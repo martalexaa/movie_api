@@ -50,7 +50,7 @@ directors, and genres. It is built using REST architecture and follows the requi
     <li><code>POST /users</code>: Allows new users to register.</li>
     <li><code>PUT /users/:username</code>: Allows users to update their user info.</li>
     <li><code>POST /users/:username/movies/:movieId</code>: Allows users to add a movie to their list of favorites.</li>
-    <li><code>DELETE /users    /:username/movies/:movieId</code>: Allows users to remove a movie from their list of favorites.</li>
+    <li><code>DELETE /users/:username/movies/:movieId</code>: Allows users to remove a movie from their list of favorites.</li>
     <li><code>DELETE /users/:username</code>: Allows existing users to deregister.</li>
 </ul>
 
