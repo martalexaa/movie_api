@@ -60,8 +60,8 @@ app.use(bodyParser.urlencoded({ extended: true }));  //bodyParser middleware fun
 // Import CORS and setting up an array that contains allowed origins for CORS policy
 const cors = require('cors');
 let allowedOrigins = ['http://localhost:8080', 'http://testsite.com', 'http://localhost:1234',
-  'https://martalexa-myflix.onrender.com', 'https://martalexaa-movie-app.netlify.app', 'http://localhost:4200', 
-                      'https://martalexaa.github.io/myFlix-Angular-client', 'https://martalexaa.github.io'];
+  'https://martalexa-myflix.onrender.com', 'https://martalexaa-movie-app.netlify.app', 'http://localhost:4200',
+  'https://martalexaa.github.io/myFlix-Angular-client', 'https://martalexaa.github.io'];
 app.use(cors({
   origin: (origin, callback) => {
     if (!origin) return callback(null, true);
@@ -277,7 +277,7 @@ Allows users to update their data.
 */
 app.put('/users/:Username', passport.authenticate("jwt", { session: false }),
   [
-    check("Username", "Username is required").isLength({ min: 5 }),
+    check("Username", "Username is required").isLength({ min: 4 }),
     check(
       "Username",
       "Username contains non alphanumeric characters - not allowed."
